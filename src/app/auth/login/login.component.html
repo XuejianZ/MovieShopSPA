@@ -1,14 +1,11 @@
 <div class="container">
 
-
     <form (ngSubmit)="login()" #loginForm="ngForm">
-
 
       <div *ngIf="invalidLogin" class="alert alert-danger">
         Invalid Email/Password
       </div>
       
-  
       <div class="form-group">
         <label for="email">Email address</label>
         <input
@@ -34,15 +31,20 @@
         />
       </div>
   
-      <input type="submit" value="Submit" class="btn btn-primary" />
+      <input type="submit" value="Login" class="btn btn-primary" />
+
     </form>
   
-    <!-- <div>
+    
+     <!-- <div>
       Observing Two way binding Values
       {{twowayInfo}}
-    </div> -->
+    </div>  -->
+   
   </div>
   
+
+
   <!-- ngModel -->
   <!--  Install formMOdule in app.module -->
   <!-- create a model that you wanna use for your form -->

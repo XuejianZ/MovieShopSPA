@@ -32,19 +32,19 @@ export class AuthenticationService {
     // once API returns token. we need to store the token in localstorage of the browser. 
     // otherwise return false to component to that component can show the message in the UI
     return this.apiService.create('account/login', userLogin).pipe( map ( response=>{
+
       if (response) {
         // save the response token to localStorage
-        console.log(response);
+      //  console.log(response);
         this.jwtStorageService.saveToken(response.token);
         this.populateUserInfo();
         return true;
       }
       return false;
     }));
+
+
   }
-
-    
-
 
   logout(){
      // we remove the token from local storage
@@ -68,14 +68,15 @@ export class AuthenticationService {
     const token = this.jwtStorageService.getToken();
 
     if(token!=null){
+      
       const tokenExpired = new JwtHelperService().isTokenExpired(token);
-
 
       if(tokenExpired || !token)
       return null;
 
     const decodedToken = new JwtHelperService().decodeToken(token);
 
+   // console.table(decodedToken);
     this.user = decodedToken;
     return this.user;
 
@@ -102,11 +103,10 @@ export class AuthenticationService {
 
       const decodedToken = this.decodeToken();
 
-
       if(decodedToken !=null){
         this.currentUserSubject.next(decodedToken);
+       
       }
-     
       this.isAuthenticatedSubject.next(true); 
     }
 

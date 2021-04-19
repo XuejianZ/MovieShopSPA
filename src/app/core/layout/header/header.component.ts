@@ -10,24 +10,42 @@ import { User } from 'src/app/shared/models/user';
 export class HeaderComponent implements OnInit {
 
 
-  iaAuthenticated: boolean | undefined;
+  isAuthenticated: boolean | undefined;
   currentUser: User | undefined;
 
-  constructor(private authService :AuthenticationService) { }
+  Logout:boolean=false;
+
+
+  constructor(private authService :AuthenticationService ) { }
 
   ngOnInit(): void {
 
+
+    this.authService.populateUserInfo();
+
+
     this.authService.isAuthenticated.subscribe(
-      
       auth => {
-        this.iaAuthenticated= auth;
-        console.log('Auth Status: ' + this.iaAuthenticated)
+        this.isAuthenticated= auth;
+        console.log('Auth Status: ' + this.isAuthenticated)
       }
-
-
     )
+       
 
+       this.authService.currentUser.subscribe(
 
+        user =>{
+          this.currentUser=user;
+          console.table('User Data: ' + this.currentUser);
+          console.log(JSON.stringify(this.currentUser));
+        }
+       )
+     
+  }
+
+  
+  logout(){
+    this.authService.logout();
   }
 
 }

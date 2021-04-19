@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
 
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
   userLogin: Login = {
 
     email: '', password: ''
+
   };
   
   invalidLogin:boolean=false;
@@ -27,7 +29,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
- login(){
+  
+   login(){
+
+
   // console.log(this.userLogin);
   this.authService.login(this.userLogin).subscribe(
 
@@ -43,11 +48,8 @@ export class LoginComponent implements OnInit {
       }
     }    
         
-      
-    
   );
  }
-
 
  get twowayInfo() {
   return JSON.stringify(this.userLogin);

@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { MovieCardListComponent } from './movies/movie-card-list/movie-card-list.component';
 import { MovieDetailsComponent } from './movies/movie-details/movie-details.component';
 import { MovieCardComponent } from './shared/components/movie-card/movie-card.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 const routes: Routes = 
@@ -15,8 +16,10 @@ const routes: Routes =
     {path:"genre/movies/:id", component: MovieCardListComponent },
     {path: "movies/:id", component: MovieDetailsComponent },
     {path: "Movies/Cast/:id" , component:CastsDetailsComponent },
-    {path:"login", component: LoginComponent}
-
+    {path:"login", component: LoginComponent},
+    {path: "register", component: RegisterComponent},
+    {path: "cast/:id" , component:CastsDetailsComponent}
+   
 ];
 
 @NgModule({

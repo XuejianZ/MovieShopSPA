@@ -16,6 +16,7 @@ import { CastsDetailsComponent } from './casts/casts-details/casts-details.compo
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { RegisterConfrimComponent } from './auth/register-confrim/register-confrim.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     MovieDetailsComponent,
     CastsDetailsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegisterConfrimComponent
   ],
 
   imports: [
